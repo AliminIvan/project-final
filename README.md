@@ -1,46 +1,23 @@
-## [REST API](http://localhost:8080/doc)
+### Description
+JavaRush University final project template.
+A project to develop a task board similar to Jira or Trello. The finished product will help track any activity.
 
-## Концепция:
+As part of the project, I completed the following tasks:
+- Understood the project structure;
+- Delete social networks: vk, yandex;
+- Extract sensitive information (login, database password, identifiers for OAuth registration/authorization, mail settings) 
+into a separate property file;
+- Implemented testing using testcontainers;
+- Wrote tests for all public ProfileRestController methods;
+- Refactored the com.javarush.jira.bugtracking.attachment.FileUtil#upload method so that it uses the modern one 
+file system approach;
+- Add new functionality: adding tags to a task (REST API + implementation on the service);
+- Add a calculation of the time the task was in work and testing. Write 2 methods at the service level, 
+which take a task as a parameter and return the elapsed time:
+How long the task was in progress (ready_for_review minus in_progress),
+How long the task was under testing (done minus ready_for_review);
+- Wrote a Dockerfile for the main server;
+- Add localization in at least two languages ​​for letter templates (mails) and the index.html start page.
 
-- Spring Modulith
-    - [Spring Modulith: достигли ли мы зрелости модульности](https://habr.com/ru/post/701984/)
-    - [Introducing Spring Modulith](https://spring.io/blog/2022/10/21/introducing-spring-modulith)
-    - [Spring Modulith - Reference documentation](https://docs.spring.io/spring-modulith/docs/current-SNAPSHOT/reference/html/)
-
-```
-  url: jdbc:postgresql://localhost:5432/jira
-  username: jira
-  password: JiraRush
-```
-
-- Есть 2 общие таблицы, на которых не fk
-    - _Reference_ - справочник. Связь делаем по _code_ (по id нельзя, тк id привязано к окружению-конкретной базе)
-    - _UserBelong_ - привязка юзеров с типом (owner, lead, ...) к объекту (таска, проект, спринт, ...). FK вручную будем
-      проверять
-
-## Аналоги
-
-- https://java-source.net/open-source/issue-trackers
-
-## Тестирование
-
-- https://habr.com/ru/articles/259055/
-
-Список выполненных задач:
-1. Разобраться со структурой проекта;
-2. Удалить социальные сети: vk, yandex;
-3. Вынести чувствительную информацию (логин, пароль БД, идентификаторы для OAuth регистрации/авторизации, настройки почты) 
-в отдельный проперти файл;
-4. Тестирование осуществляется с помощью тестконтейнеров;
-5. Написать тесты для всех публичных методов контроллера ProfileRestController.
-6. Сделать рефакторинг метода com.javarush.jira.bugtracking.attachment.FileUtil#upload чтоб он использовал современный 
-подход для работы с файловой системой;
-7. Добавить новый функционал: добавления тегов к задаче (REST API + реализация на сервисе);
-8. Добавить подсчет времени сколько задача находилась в работе и тестировании. Написать 2 метода на уровне сервиса, 
-которые параметром принимают задачу и возвращают затраченное время:
-Сколько задача находилась в работе (ready_for_review минус in_progress),
-Сколько задача находилась на тестировании (done минус ready_for_review);
-9. Написать Dockerfile для основного сервера;
-10. (Не доделано!!!!!!!!!!!!!!!!!!) Написать docker-compose файл для запуска контейнера сервера вместе с БД и nginx. 
-11. Добавить локализацию минимум на двух языках для шаблонов писем (mails) и стартовой страницы index.html.
-12. Не выполнен.
+### Stack
+JDK17, Spring Boot 3.x, Caffeine Cache, Lombok, SpringDoc OpenApi 2.x, Thymeleaf, Postgresql, Liquibase, Mapstruct, Testcontainers
